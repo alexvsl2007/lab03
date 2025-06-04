@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 3.4)
-project(solver_lib)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+cmake_minimum_required(VERSION 3.10)
+project(solver_lib LANGUAGES CXX)
 
-add_library(solver_lib ${CMAKE_CURRENT_SOURCE_DIR}/solver.cpp)
+add_library(solver_lib STATIC
+    solver.cpp
+    solver.h
+)
+target_include_directories(solver_lib
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
